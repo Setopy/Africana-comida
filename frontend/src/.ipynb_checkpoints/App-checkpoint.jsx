@@ -1,61 +1,42 @@
-import { Routes, Route } from 'react-router-dom';
-import { Suspense, lazy } from 'react';
-import Navbar from './components/layout/Navbar';
-import Footer from './components/layout/Footer';
-import Home from './pages/Home';
-import Loading from './components/ui/Loading';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import AdminRoute from './components/auth/AdminRoute';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 
-// Lazy-loaded pages
-const Menu = lazy(() => import('./pages/Menu'));
-const MenuItem = lazy(() => import('./pages/MenuItem'));
-const Cart = lazy(() => import('./pages/Cart'));
-const Checkout = lazy(() => import('./pages/Checkout'));
-const OrderConfirmation = lazy(() => import('./pages/OrderConfirmation'));
-const Login = lazy(() => import('./pages/Login'));
-const Register = lazy(() => import('./pages/Register'));
-const Profile = lazy(() => import('./pages/Profile'));
-const Orders = lazy(() => import('./pages/Orders'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const Reviews = lazy(() => import('./pages/Reviews'));
-const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
-const AdminMenu = lazy(() => import('./pages/admin/AdminMenu'));
-const AdminOrders = lazy(() => import('./pages/admin/AdminOrders'));
-const AdminReviews = lazy(() => import('./pages/admin/AdminReviews'));
+// Import components
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Footer from './components/Footer';
+
+// Navigation
+const Navbar = () => (
+  <nav style={{ background: '#8B4513', padding: '15px 20px' }}>
+    <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ fontWeight: 'bold', fontSize: '1.5rem', color: 'white' }}>
+        <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Comida Africana</Link>
+      </div>
+      <ul style={{ display: 'flex', listStyle: 'none', gap: '20px', margin: 0, padding: 0 }}>
+        <li><Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link></li>
+        <li><Link to="/menu" style={{ color: 'white', textDecoration: 'none' }}>Menu</Link></li>
+        <li><Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>About</Link></li>
+        <li><Link to="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contact</Link></li>
+      </ul>
+    </div>
+  </nav>
+);
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Navbar />
-      <main className="flex-grow">
-        <Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/menu/:id" element={<MenuItem />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/checkout" element={<Checkout />} />
-            <Route path="/order-confirmation/:id" element={<OrderConfirmation />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/reviews" element={<Reviews />} />
-            
-            {/* Protected Routes */}
-            <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} />
-            <Route path="/orders" element={<ProtectedRoute element={<Orders />} />} />
-            
-            {/* Admin Routes */}
-            <Route path="/admin" element={<AdminRoute element={<Dashboard />} />} />
-            <Route path="/admin/menu" element={<AdminRoute element={<AdminMenu />} />} />
-            <Route path="/admin/orders" element={<AdminRoute element={<AdminOrders />} />} />
-            <Route path="/admin/reviews" element={<AdminRoute element={<AdminReviews />} />} />
-          </Routes>
-        </Suspense>
-      </main>
+      <div style={{ flex: '1 0 auto' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
       <Footer />
     </div>
   );
