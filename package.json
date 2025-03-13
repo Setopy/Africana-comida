@@ -1,0 +1,30 @@
+{
+  "name": "comida-africana",
+  "version": "1.0.0",
+  "description": "Nigerian Restaurant Web Application",
+  "scripts": {
+    "install:all": "npm install && npm run install:backend && npm run 
+install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run 
+dev:frontend\"",
+    "build:backend": "cd backend && npm run lint && npm test",
+    "build:frontend": "cd frontend && npm run lint && npm run test && npm 
+run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start": "cd backend && npm start",
+    "db:seed": "cd backend && npm run db:seed",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

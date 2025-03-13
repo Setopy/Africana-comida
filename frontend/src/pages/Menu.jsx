@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from '../context/CartContext';
 
 function Menu() {
+  const { addToCart } = useCart();
+  
   // Categories for Nigerian cuisine
   const categories = [
     { id: 'all', name: 'All Items' },
@@ -144,6 +147,20 @@ function Menu() {
     return peppers;
   };
 
+  // Function to handle adding item to cart
+  const handleAddToCart = (item) => {
+    addToCart({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+      quantity: 1
+    });
+    
+    // Show a confirmation message
+    alert(`${item.name} added to cart!`);
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -223,19 +240,31 @@ function Menu() {
                   )}
                 </div>
                 <p style={{ color: '#666', marginBottom: '15px', flexGrow: 1 }}>{item.description}</p>
-                <button 
-                  style={{ 
-                    backgroundColor: '#8B4513', 
-                    color: 'white',
-                    padding: '10px 15px',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    alignSelf: 'flex-end'
-                  }}
-                >
-                  Add to Cart
-                </button>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <Link 
+                    to={`/menu/${item.id}`} 
+                    style={{
+                      color: '#8B4513',
+                      textDecoration: 'none',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    View Details
+                  </Link>
+                  <button 
+                    onClick={() => handleAddToCart(item)}
+                    style={{ 
+                      backgroundColor: '#8B4513', 
+                      color: 'white',
+                      padding: '10px 15px',
+                      border: 'none',
+                      borderRadius: '4px',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
               </div>
             </div>
           ))}
