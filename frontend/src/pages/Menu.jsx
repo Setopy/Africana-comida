@@ -1,267 +1,120 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import React, { useState, useEffect } from 'react';
+import { menuAPI } from '../services/api';
 
-function Menu() {
-  const { addToCart } = useCart();
-  
-  // Categories for Nigerian cuisine
+const Menu = () => {
+  const [menuItems, setMenuItems] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('all');
+
   const categories = [
     { id: 'all', name: 'All Items' },
-    { id: 'starters', name: 'Starters & Appetizers' },
-    { id: 'main', name: 'Main Dishes' },
-    { id: 'soups', name: 'Traditional Soups' },
-    { id: 'sides', name: 'Side Dishes' },
-    { id: 'desserts', name: 'Desserts & Sweets' },
-    { id: 'drinks', name: 'Drinks' }
+    { id: 'main-course', name: 'Main Dishes' },
+    { id: 'appetizer', name: 'Starters' },
+    { id: 'dessert', name: 'Desserts' },
+    { id: 'beverage', name: 'Drinks' }
   ];
 
-  // Sample Nigerian menu items with detailed descriptions
-  const menuItems = [
-    {
-      id: 1,
-      name: "Jollof Rice",
-      description: "A flavorful rice dish cooked in a rich tomato and pepper sauce with traditional Nigerian spices. Served with your choice of protein.",
-      price: 12.99,
-      category: "main",
-      spicyLevel: 2,
-      image: "https://via.placeholder.com/300x200?text=Jollof+Rice"
-    },
-    {
-      id: 2,
-      name: "Egusi Soup",
-      description: "Traditional Nigerian soup made with ground melon seeds, leafy vegetables, and choice of protein. Served with pounded yam, fufu, or rice.",
-      price: 14.99,
-      category: "soups",
-      spicyLevel: 3,
-      image: "https://via.placeholder.com/300x200?text=Egusi+Soup"
-    },
-    {
-      id: 3,
-      name: "Suya",
-      description: "Spicy grilled beef skewers seasoned with a unique blend of ground peanuts and spices. A popular Nigerian street food.",
-      price: 10.99,
-      category: "starters",
-      spicyLevel: 4,
-      image: "https://via.placeholder.com/300x200?text=Suya"
-    },
-    {
-      id: 4,
-      name: "Pounded Yam with Efo Riro",
-      description: "Smooth, stretchy pounded yam served with a rich vegetable stew cooked with assorted meats and fish.",
-      price: 15.99,
-      category: "main",
-      spicyLevel: 2,
-      image: "https://via.placeholder.com/300x200?text=Pounded+Yam"
-    },
-    {
-      id: 5,
-      name: "Moin Moin",
-      description: "Steamed bean pudding made from peeled blended beans, onions, and peppers. Can be served plain or with boiled eggs inside.",
-      price: 8.99,
-      category: "sides",
-      spicyLevel: 1,
-      image: "https://via.placeholder.com/300x200?text=Moin+Moin"
-    },
-    {
-      id: 6,
-      name: "Akara",
-      description: "Deep-fried bean cakes made from black-eyed peas, similar to hush puppies but with a Nigerian twist. A popular breakfast item.",
-      price: 7.99,
-      category: "starters",
-      spicyLevel: 1,
-      image: "https://via.placeholder.com/300x200?text=Akara"
-    },
-    {
-      id: 7,
-      name: "Pepper Soup",
-      description: "A light, spicy soup made with a variety of meats or fish and a unique blend of Nigerian spices. Known for its medicinal properties.",
-      price: 13.99,
-      category: "soups",
-      spicyLevel: 5,
-      image: "https://via.placeholder.com/300x200?text=Pepper+Soup"
-    },
-    {
-      id: 8,
-      name: "Chin Chin",
-      description: "Sweet, crunchy fried pastry snack made from flour, sugar, and other ingredients. Perfect for dessert or as a quick snack.",
-      price: 5.99,
-      category: "desserts",
-      spicyLevel: 0,
-      image: "https://via.placeholder.com/300x200?text=Chin+Chin"
-    },
-    {
-      id: 9,
-      name: "Zobo Drink",
-      description: "A refreshing hibiscus-based drink infused with ginger and other spices. Served cold and slightly sweetened.",
-      price: 4.99,
-      category: "drinks",
-      spicyLevel: 0,
-      image: "https://via.placeholder.com/300x200?text=Zobo+Drink"
-    },
-    {
-      id: 10,
-      name: "Ofada Stew",
-      description: "A spicy stew made with red bell peppers, scotch bonnet peppers, and locust beans. Traditionally served with ofada rice.",
-      price: 13.99,
-      category: "main",
-      spicyLevel: 4,
-      image: "https://via.placeholder.com/300x200?text=Ofada+Stew"
-    },
-    {
-      id: 11,
-      name: "Dodo (Fried Plantain)",
-      description: "Sweet, ripe plantains, sliced and deep-fried until golden brown. A popular side dish that complements many Nigerian meals.",
-      price: 6.99,
-      category: "sides",
-      spicyLevel: 0,
-      image: "https://via.placeholder.com/300x200?text=Dodo"
-    },
-    {
-      id: 12,
-      name: "Chapman",
-      description: "A non-alcoholic cocktail made with a blend of Fanta, Sprite, grenadine, cucumber, lemon, and a hint of Angostura bitters.",
-      price: 5.99,
-      category: "drinks",
-      spicyLevel: 0,
-      image: "https://via.placeholder.com/300x200?text=Chapman"
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+
+  const fetchMenuItems = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const response = await menuAPI.getAll();
+      console.log('API Response:', response.data);
+      setMenuItems(response.data.data || []);
+    } catch (err) {
+      setError('Failed to load menu items. Please try again.');
+      console.error('Error fetching menu:', err);
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
 
-  // State for active category filter
-  const [activeCategory, setActiveCategory] = useState('all');
-  
-  // Filter menu items based on active category
   const filteredItems = activeCategory === 'all' 
     ? menuItems 
     : menuItems.filter(item => item.category === activeCategory);
 
-  // Function to render spicy level indicators
-  const renderSpicyLevel = (level) => {
-    const peppers = [];
-    for (let i = 0; i < level; i++) {
-      peppers.push(
-        <span key={i} style={{ color: 'red' }}>🌶️</span>
-      );
-    }
-    return peppers;
-  };
-
-  // Function to handle adding item to cart
-  const handleAddToCart = (item) => {
-    addToCart({
-      id: item.id,
-      name: item.name,
-      price: item.price,
-      image: item.image,
-      quantity: 1
-    });
-    
-    // Show a confirmation message
-    alert(`${item.name} added to cart!`);
-  };
-
-  return (
-    <div>
-      {/* Hero Section */}
-      <div style={{ 
-        backgroundColor: '#8B4513', 
-        color: 'white',
-        padding: '40px 20px',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>
-            Nigerian Cuisine
-          </h1>
-          <p style={{ fontSize: '1.2rem', marginBottom: '20px' }}>
-            Explore our authentic Nigerian dishes prepared with traditional recipes and techniques.
-          </p>
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Loading delicious menu...</p>
         </div>
       </div>
+    );
+  }
 
-      {/* Menu Content */}
-      <div style={{ padding: '40px 20px', maxWidth: '1200px', margin: '0 auto' }}>
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center bg-white p-8 rounded-lg shadow-md">
+          <p className="text-red-600 mb-4">{error}</p>
+          <button 
+            onClick={fetchMenuItems}
+            className="bg-amber-600 text-white px-4 py-2 rounded-md hover:bg-amber-700"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-7xl mx-auto px-4">
+        <h1 className="text-4xl font-bold text-center mb-2">Our Menu</h1>
+        <p className="text-center text-gray-600 mb-8">
+          Authentic Nigerian cuisine made with love • Live from our kitchen
+        </p>
+        
         {/* Category Filter */}
-        <div style={{ marginBottom: '30px', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '10px' }}>
+        <div className="flex flex-wrap justify-center gap-4 mb-8">
           {categories.map(category => (
-            <button 
+            <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              style={{ 
-                padding: '8px 16px',
-                border: 'none',
-                borderRadius: '20px',
-                backgroundColor: activeCategory === category.id ? '#8B4513' : '#F5F5DC',
-                color: activeCategory === category.id ? 'white' : '#8B4513',
-                fontWeight: 'bold',
-                cursor: 'pointer'
-              }}
+              className={`px-6 py-2 rounded-full transition-all duration-200 ${
+                activeCategory === category.id
+                  ? 'bg-amber-600 text-white shadow-md'
+                  : 'bg-white text-gray-700 hover:bg-amber-100 hover:shadow-sm'
+              }`}
             >
               {category.name}
             </button>
           ))}
         </div>
 
-        {/* Menu Items Grid */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', 
-          gap: '30px' 
-        }}>
+        {/* Menu Items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map(item => (
-            <div 
-              key={item.id} 
-              style={{ 
-                border: '1px solid #e0e0e0', 
-                borderRadius: '8px',
-                overflow: 'hidden',
-                backgroundColor: 'white',
-                boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
-                display: 'flex',
-                flexDirection: 'column'
-              }}
-            >
-              <img 
-                src={item.image} 
-                alt={item.name} 
-                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-              />
-              <div style={{ padding: '20px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                <div style={{ marginBottom: '15px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                    <h3 style={{ margin: '0 0 5px 0', fontSize: '1.3rem' }}>{item.name}</h3>
-                    <span style={{ fontWeight: 'bold', fontSize: '1.2rem' }}>${item.price.toFixed(2)}</span>
+            <div key={item._id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-200">
+              <div className="h-48 bg-gradient-to-br from-amber-100 to-amber-200 flex items-center justify-center">
+                <span className="text-amber-800 text-lg font-semibold">
+                  {item.name}
+                </span>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900">{item.name}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3">{item.description}</p>
+                
+                {item.ingredients && item.ingredients.length > 0 && (
+                  <div className="mb-4">
+                    <span className="text-sm text-gray-500">Ingredients: </span>
+                    <span className="text-sm text-gray-700">{item.ingredients.join(', ')}</span>
                   </div>
-                  {item.spicyLevel > 0 && (
-                    <div style={{ marginTop: '5px' }}>
-                      {renderSpicyLevel(item.spicyLevel)}
-                    </div>
-                  )}
-                </div>
-                <p style={{ color: '#666', marginBottom: '15px', flexGrow: 1 }}>{item.description}</p>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <Link 
-                    to={`/menu/${item.id}`} 
-                    style={{
-                      color: '#8B4513',
-                      textDecoration: 'none',
-                      fontWeight: 'bold'
-                    }}
-                  >
-                    View Details
-                  </Link>
-                  <button 
-                    onClick={() => handleAddToCart(item)}
-                    style={{ 
-                      backgroundColor: '#8B4513', 
-                      color: 'white',
-                      padding: '10px 15px',
-                      border: 'none',
-                      borderRadius: '4px',
-                      cursor: 'pointer'
-                    }}
-                  >
+                )}
+                
+                <div className="flex justify-between items-center">
+                  <span className="text-2xl font-bold text-amber-600">
+                    ${item.price}
+                  </span>
+                  <button className="bg-amber-600 text-white px-6 py-2 rounded-md hover:bg-amber-700 transition-colors duration-200">
                     Add to Cart
                   </button>
                 </div>
@@ -269,9 +122,25 @@ function Menu() {
             </div>
           ))}
         </div>
+
+        {filteredItems.length === 0 && !loading && (
+          <div className="text-center py-12">
+            <div className="text-gray-400 text-6xl mb-4">🍽️</div>
+            <h3 className="text-xl font-semibold text-gray-600 mb-2">No items in this category</h3>
+            <p className="text-gray-500">Try selecting a different category or check back later!</p>
+          </div>
+        )}
+
+        {/* Live Data Indicator */}
+        <div className="text-center mt-8 text-sm text-gray-500">
+          <span className="inline-flex items-center">
+            <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
+            Live data from API • {menuItems.length} items loaded
+          </span>
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default Menu;
