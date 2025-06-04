@@ -1,22 +1,18 @@
 {
-  "name": "comida-africana",
+  "name": "africana-comida",
   "version": "1.0.0",
-  "description": "Nigerian Restaurant Web Application",
+  "description": "Authentic Nigerian cuisine restaurant application",
+  "main": "index.js",
   "scripts": {
-    "install:all": "npm install && npm run install:backend && npm run 
-install:frontend",
-    "install:backend": "cd backend && npm install",
-    "install:frontend": "cd frontend && npm install",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
-    "dev": "concurrently \"npm run dev:backend\" \"npm run 
-dev:frontend\"",
-    "build:backend": "cd backend && npm run lint && npm test",
-    "build:frontend": "cd frontend && npm run lint && npm run test && npm 
-run build",
-    "build": "npm run build:backend && npm run build:frontend",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "build": "npm run build:frontend",
+    "build:frontend": "cd frontend && npm run build",
     "start": "cd backend && npm start",
-    "db:seed": "cd backend && npm run db:seed",
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "cd backend && npm test",
     "test:frontend": "cd frontend && npm test"
@@ -24,7 +20,7 @@ run build",
   "devDependencies": {
     "concurrently": "^8.2.0"
   },
-  "engines": {
-    "node": ">=16.0.0"
-  }
+  "keywords": ["restaurant", "nigerian", "food", "react", "nodejs"],
+  "author": "Ogunjiseyi",
+  "license": "MIT"
 }
