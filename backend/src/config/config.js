@@ -7,7 +7,7 @@ dotenv.config({ path: path.join(__dirname, '../../.env') });
 // Define and validate configuration
 const config = {
   NODE_ENV: process.env.NODE_ENV || 'development',
-  PORT: parseInt(process.env.PORT) || 5000,
+  PORT: parseInt(process.env.PORT, 10) || 5000,
   MONGODB_URI: process.env.MONGODB_URI,
   JWT_SECRET: process.env.JWT_SECRET,
   JWT_ACCESS_EXPIRATION: process.env.JWT_ACCESS_EXPIRATION || '15m',
@@ -26,12 +26,17 @@ if (missingEnvs.length > 0) {
   throw new Error(`Missing required environment variables: ${missingEnvs.join(', ')}`);
 }
 
-// Create the logs directory if it doesn't exist in production
+// Create the logs directory asynchronously if it doesn't exist in production
 if (config.NODE_ENV === 'production') {
-  const fs = require('fs');
-  if (!fs.existsSync(config.LOG_DIR)) {
-    fs.mkdirSync(config.LOG_DIR, { recursive: true });
-  }
+  const fs = require('fs').promises;
+  (async () => {
+    try {
+      await fs.mkdir(config.LOG_DIR, { recursive: true });
+    } catch (error) {
+      // Non-blocking: warn but continue
+      console.warn('Warning: Could not create logs directory:', error.message);
+    }
+  })();
 }
 
 module.exports = config;
