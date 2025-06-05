@@ -22,30 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/comida-af
   .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.log('❌ MongoDB error:', err));
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
-});
-
-// Dynamic CORS for deployment
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://localhost:3000', 
-  process.env.CORS_ORIGIN
-].filter(Boolean);
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin) || process.env.CORS_ORIGIN === '*') {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true
-}));
-
-// Handle Render's dynamic port assignment
+// CRITICAL: Let Render assign the port dynamically
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`✅ Server running on port ${PORT}`);
