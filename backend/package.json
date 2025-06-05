@@ -14,8 +14,7 @@
     "db:seed": "node src/seeds/seed.js",
     "db:reset": "node src/seeds/reset.js",
     "audit": "npm audit --audit-level=high",
-    "outdated": "npm outdated",
-    "preinstall": "npx npm-check-updates --target minor"
+    "outdated": "npm outdated"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
