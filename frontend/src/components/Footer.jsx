@@ -48,19 +48,19 @@ function Footer() {
           <div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '15px' }}>Contact Us</h3>
             <address style={{ fontStyle: 'normal', lineHeight: '1.6' }}>
-              <p style={{ marginBottom: '10px' }}>123 Avenida Principal</p>
+              <p style={{ marginBottom: '10px' }}>Las Torres</p>
               <p style={{ marginBottom: '10px' }}>Tijuana, Baja California</p>
               <p style={{ marginBottom: '10px' }}>Mexico</p>
-              <p style={{ marginBottom: '10px' }}>Phone: (123) 456-7890</p>
-              <p>Email: info@comida-africana.com</p>
+              <p style={{ marginBottom: '10px' }}>Phone: (52) 6634356650</p>
+              <p>Email: cocinabimpsy@gmail.com</p>
             </address>
           </div>
           
           {/* Hours */}
           <div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '15px' }}>Opening Hours</h3>
-            <p style={{ marginBottom: '10px' }}>Monday - Thursday: 11:00 AM - 9:00 PM</p>
-            <p style={{ marginBottom: '10px' }}>Friday - Saturday: 11:00 AM - 10:00 PM</p>
+            <p style={{ marginBottom: '10px' }}>Monday - Thursday: 08:00 AM - 7:00 PM</p>
+            <p style={{ marginBottom: '10px' }}>Friday - Saturday: 08:00 AM - 7:00 PM</p>
             <p>Sunday: 12:00 PM - 8:00 PM</p>
           </div>
         </div>
