@@ -5,6 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "start:minimal": "node server-minimal.js",
+    "start:safe": "node server-safe.js",
+    "diagnose": "node diagnose.js",
     "dev": "nodemon server.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
