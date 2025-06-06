@@ -35,7 +35,6 @@ function About() {
                 height: '280px',
                 borderRadius: '50%',
                 objectFit: 'contain',
-                objectPosition: 'center 20%',
                 border: '4px solid #8B4513',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
               }}
