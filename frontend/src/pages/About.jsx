@@ -26,12 +26,11 @@ function About() {
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513' }}>How It All Began</h2>
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
             Comida Africana began as a dream to introduce the rich and vibrant flavors of Nigerian cuisine to Tijuana. 
-            Our founder, Chef Ade, moved to Mexico in 2020 and noticed the lack of authentic African dining options in the area.
+            Our CEO, Mrs Adebimpe Ogunji, moved to Mexico in 2024 and noticed the lack of authentic African dining options in the area.
           </p>
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
-            Having grown up cooking traditional Nigerian dishes alongside his grandmother, Chef Ade decided to share his 
-            culinary heritage with his new community. What started as small pop-up events quickly gained popularity, leading 
-            to the establishment of our restaurant in 2023.
+            Having grown up cooking traditional Nigerian dishes with great flare for various ingredients combinations, CEO Adebimpe decided to share her
+            culinary heritage with her new community. We implore you on a mouth-watering journey as you explore and order for our delicious dishes. Thank you
           </p>
         </div>
 
@@ -44,7 +43,7 @@ function About() {
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513', textAlign: 'center' }}>Our Mission</h2>
           <p style={{ lineHeight: '1.6', textAlign: 'center', fontStyle: 'italic' }}>
             "To create an authentic dining experience that celebrates Nigerian culture through its cuisine, 
-            while building bridges between communities and introducing the rich culinary traditions of Nigeria to Tijuana."
+            while building bridges between communities and introducing the rich culinary traditions of Nigeria to Tijuana and Mexico in general."
           </p>
         </div>
 
@@ -52,20 +51,17 @@ function About() {
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513' }}>Our Commitment to Authenticity</h2>
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
             At Comida Africana, we are dedicated to preserving the authentic flavors of Nigerian cuisine. 
-            We import special spices and ingredients directly from Nigeria, while also sourcing fresh local produce 
-            to ensure the highest quality in every dish we serve.
+            We dextrously use spices and ingredients that deliciuosly bring out the fragrance of Nigeria dishes, and ensure quality in every dish we serve.
           </p>
           <p style={{ lineHeight: '1.6' }}>
-            Our recipes have been passed down through generations, and our chefs have been trained in traditional 
-            Nigerian cooking techniques. We take pride in sharing these culinary traditions with our community in Tijuana.
+            Our recipes are well curated and prepared with years of deep experience from real touches with Nigeria meals. We take pride in sharing these culinary traditions with our community in Tijuana.
           </p>
         </div>
 
         <div>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513' }}>Community Involvement</h2>
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
-            We believe in giving back to the community that has embraced us. Comida Africana regularly hosts 
-            cultural events, cooking classes, and fundraisers for local causes. We strive to be more than just 
+            We believe in giving back to the community that has embraced us. We strive to be more than just 
             a restaurant – we aim to be a cultural hub that brings people together through the love of good food.
           </p>
           <p style={{ lineHeight: '1.6' }}>
