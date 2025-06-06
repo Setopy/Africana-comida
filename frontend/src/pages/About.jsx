@@ -24,6 +24,31 @@ function About() {
       <div style={{ padding: '60px 20px', maxWidth: '900px', margin: '0 auto' }}>
         <div style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513' }}>How It All Began</h2>
+          
+          {/* CEO Photo - Centered */}
+          <div style={{ textAlign: 'center', marginBottom: '30px' }}>
+            <img 
+              src="/ceo.jpg" 
+              alt="Mrs. Adebimpe Ogunji, CEO of Comida Africana"
+              style={{
+                width: '200px',
+                height: '200px',
+                borderRadius: '50%',
+                objectFit: 'cover',
+                border: '4px solid #8B4513',
+                boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+              }}
+            />
+            <p style={{ 
+              marginTop: '10px', 
+              fontStyle: 'italic', 
+              color: '#8B4513',
+              fontSize: '0.9rem'
+            }}>
+              Mrs. Adebimpe Ogunji, Founder & CEO
+            </p>
+          </div>
+
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
             Comida Africana began as a dream to introduce the rich and vibrant flavors of Nigerian cuisine to Tijuana. 
             Our CEO, Mrs Adebimpe Ogunji, moved to Mexico in 2024 and noticed the lack of authentic African dining options in the area.
