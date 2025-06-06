@@ -31,8 +31,8 @@ function About() {
               src="/ceo.jpg" 
               alt="Mrs. Adebimpe Ogunji, CEO of Comida Africana"
               style={{
-                width: '350px',
-                height: '350px',
+                width: '280px',
+                height: '280px',
                 borderRadius: '50%',
                 objectFit: 'cover',
                 border: '4px solid #8B4513',
