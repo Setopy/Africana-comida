@@ -1,0 +1,11 @@
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 1 failed:","retryIn":2000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:18.039Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:18.041Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 2 failed:","retryIn":4000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:35.052Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:35.053Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 3 failed:","retryIn":8000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:54.065Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:54.066Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 4 failed:","retryIn":16000,"service":"comida-africana-api","timestamp":"2025-06-05T22:24:17.079Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:24:17.079Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 5 failed:","retryIn":32000,"service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}
+{"level":"error","message":"❌ Max MongoDB connection retries reached. Starting server anyway...","service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}

@@ -1,0 +1,26 @@
+{"level":"info","message":"Attempting to connect to MongoDB (attempt 1/5)","service":"comida-africana-api","timestamp":"2025-06-05T22:23:02.999Z"}
+{"level":"info","message":"🚀 Server running in production mode","service":"comida-africana-api","timestamp":"2025-06-05T22:23:03.041Z"}
+{"level":"info","message":"🌐 Server listening on 0.0.0.0:5001","service":"comida-africana-api","timestamp":"2025-06-05T22:23:03.041Z"}
+{"level":"info","message":"🔗 Health check available at: http://0.0.0.0:5001/health","service":"comida-africana-api","timestamp":"2025-06-05T22:23:03.042Z"}
+{"level":"info","message":"🏭 Production mode: Serving static files","service":"comida-africana-api","timestamp":"2025-06-05T22:23:03.042Z"}
+{"level":"info","message":"GET /","method":"GET","responseTime":24,"service":"comida-africana-api","status":200,"timestamp":"2025-06-05T22:23:10.231Z","url":"/"}
+{"level":"warn","message":"⚠️ MongoDB disconnected. Will attempt to reconnect...","service":"comida-africana-api","timestamp":"2025-06-05T22:23:18.037Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 1 failed:","retryIn":2000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:18.039Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:18.041Z"}
+{"level":"info","message":"Attempting to connect to MongoDB (attempt 2/5)","service":"comida-africana-api","timestamp":"2025-06-05T22:23:20.042Z"}
+{"level":"warn","message":"⚠️ MongoDB disconnected. Will attempt to reconnect...","service":"comida-africana-api","timestamp":"2025-06-05T22:23:35.051Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 2 failed:","retryIn":4000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:35.052Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:35.053Z"}
+{"level":"info","message":"Attempting to connect to MongoDB (attempt 3/5)","service":"comida-africana-api","timestamp":"2025-06-05T22:23:39.057Z"}
+{"level":"warn","message":"⚠️ MongoDB disconnected. Will attempt to reconnect...","service":"comida-africana-api","timestamp":"2025-06-05T22:23:54.065Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 3 failed:","retryIn":8000,"service":"comida-africana-api","timestamp":"2025-06-05T22:23:54.065Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:23:54.066Z"}
+{"level":"info","message":"Attempting to connect to MongoDB (attempt 4/5)","service":"comida-africana-api","timestamp":"2025-06-05T22:24:02.073Z"}
+{"level":"warn","message":"⚠️ MongoDB disconnected. Will attempt to reconnect...","service":"comida-africana-api","timestamp":"2025-06-05T22:24:17.078Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 4 failed:","retryIn":16000,"service":"comida-africana-api","timestamp":"2025-06-05T22:24:17.079Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:24:17.079Z"}
+{"level":"info","message":"Attempting to connect to MongoDB (attempt 5/5)","service":"comida-africana-api","timestamp":"2025-06-05T22:24:33.079Z"}
+{"level":"warn","message":"⚠️ MongoDB disconnected. Will attempt to reconnect...","service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.083Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection attempt 5 failed:","retryIn":32000,"service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}
+{"level":"error","message":"❌ Max MongoDB connection retries reached. Starting server anyway...","service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}
+{"error":"connect ECONNREFUSED 127.0.0.1:27017","level":"error","message":"❌ MongoDB connection error:","service":"comida-africana-api","timestamp":"2025-06-05T22:24:48.084Z"}
