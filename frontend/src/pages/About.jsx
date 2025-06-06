@@ -31,12 +31,12 @@ function About() {
               src="/ceo.jpg" 
               alt="Mrs. Adebimpe Ogunji, CEO of Comida Africana"
               style={{
-                width: '200px',
-                height: '200px',
+                width: '350px',
+                height: '350px',
                 borderRadius: '50%',
                 objectFit: 'cover',
                 border: '4px solid #8B4513',
-                boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
+                boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
               }}
             />
             <p style={{ 
