@@ -34,7 +34,7 @@ function About() {
                 width: '320px',
                 height: '320px',
                 borderRadius: '55%',
-                objectFit: 'contain',
+                objectFit: 'cover',
                 border: '4px solid #8B4513',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
               }}
