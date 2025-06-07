@@ -33,7 +33,7 @@ function About() {
               style={{
                 width: '320px',
                 height: '320px',
-                borderRadius: '55%',
+                borderRadius: '65%',
                 objectFit: 'cover',
                 border: '4px solid #8B4513',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
