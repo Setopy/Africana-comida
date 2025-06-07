@@ -25,28 +25,109 @@ function About() {
         <div style={{ marginBottom: '40px' }}>
           <h2 style={{ fontSize: '1.8rem', marginBottom: '20px', color: '#8B4513' }}>How It All Began</h2>
           
-          {/* CEO Photo - Centered */}
+          {/* CEO Photo - Centered with Fixed Cropping */}
           <div style={{ textAlign: 'center', marginBottom: '30px' }}>
             <img 
               src="/ceo.jpg" 
               alt="Mrs. Adebimpe Ogunji, CEO of Comida Africana"
               style={{
-                width: '320px',
-                height: '320px',
-                borderRadius: '65%',
+                width: '300px',
+                height: '400px',
+                borderRadius: '20px', // Rounded rectangle instead of circle
                 objectFit: 'cover',
+                objectPosition: 'center center', // Centered both ways
                 border: '4px solid #8B4513',
                 boxShadow: '0 4px 8px rgba(0,0,0,0.3)'
               }}
             />
-            <p style={{ 
-              marginTop: '10px', 
-              fontStyle: 'italic', 
-              color: '#8B4513',
-              fontSize: '0.9rem'
+            {/* Aesthetic Name Frame */}
+            <div style={{
+              marginTop: '20px',
+              padding: '15px 25px',
+              background: 'linear-gradient(135deg, #8B4513 0%, #A0522D 100%)',
+              borderRadius: '15px',
+              border: '2px solid #D4AF37',
+              boxShadow: '0 6px 15px rgba(139, 69, 19, 0.3)',
+              maxWidth: '320px',
+              margin: '20px auto 0',
+              position: 'relative',
+              overflow: 'hidden'
             }}>
-              Mrs. Adebimpe Ogunji, Founder & CEO
-            </p>
+              {/* Decorative corner elements */}
+              <div style={{
+                position: 'absolute',
+                top: '5px',
+                left: '5px',
+                width: '20px',
+                height: '20px',
+                border: '2px solid #D4AF37',
+                borderRight: 'none',
+                borderBottom: 'none',
+                borderRadius: '3px 0 0 0'
+              }}></div>
+              <div style={{
+                position: 'absolute',
+                top: '5px',
+                right: '5px',
+                width: '20px',
+                height: '20px',
+                border: '2px solid #D4AF37',
+                borderLeft: 'none',
+                borderBottom: 'none',
+                borderRadius: '0 3px 0 0'
+              }}></div>
+              <div style={{
+                position: 'absolute',
+                bottom: '5px',
+                left: '5px',
+                width: '20px',
+                height: '20px',
+                border: '2px solid #D4AF37',
+                borderRight: 'none',
+                borderTop: 'none',
+                borderRadius: '0 0 0 3px'
+              }}></div>
+              <div style={{
+                position: 'absolute',
+                bottom: '5px',
+                right: '5px',
+                width: '20px',
+                height: '20px',
+                border: '2px solid #D4AF37',
+                borderLeft: 'none',
+                borderTop: 'none',
+                borderRadius: '0 0 3px 0'
+              }}></div>
+              
+              {/* Name and Title */}
+              <div style={{ textAlign: 'center', color: 'white', position: 'relative', zIndex: 1 }}>
+                <h3 style={{
+                  margin: '0 0 5px 0',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  letterSpacing: '0.5px',
+                  textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+                }}>
+                  Mrs. Adebimpe Ogunji
+                </h3>
+                <div style={{
+                  width: '60px',
+                  height: '2px',
+                  background: '#D4AF37',
+                  margin: '8px auto',
+                  borderRadius: '1px'
+                }}></div>
+                <p style={{
+                  margin: '0',
+                  fontSize: '0.85rem',
+                  fontStyle: 'italic',
+                  opacity: '0.95',
+                  letterSpacing: '0.3px'
+                }}>
+                  Founder & CEO
+                </p>
+              </div>
+            </div>
           </div>
 
           <p style={{ marginBottom: '20px', lineHeight: '1.6' }}>
