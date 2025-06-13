@@ -8,6 +8,11 @@ const connectToDatabase = async () => {
   }
 
   try {
+    // Load environment variables if not already loaded
+    if (!process.env.MONGODB_URI) {
+      require('dotenv').config();
+    }
+
     const connection = await mongoose.connect(process.env.MONGODB_URI, {
       serverSelectionTimeoutMS: 5000,
       socketTimeoutMS: 45000,

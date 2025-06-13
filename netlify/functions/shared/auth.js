@@ -4,6 +4,11 @@ const { User, RefreshToken } = require('./models');
 
 const auth = async (event) => {
   try {
+    // Load environment variables if not already loaded
+    if (!process.env.JWT_SECRET) {
+      require('dotenv').config();
+    }
+
     // Check for token in Authorization header or cookies
     let token = event.headers.authorization?.replace('Bearer ', '');
     
@@ -50,6 +55,11 @@ const auth = async (event) => {
 
 const generateTokens = async (user, ipAddress, userAgent) => {
   try {
+    // Load environment variables if not already loaded
+    if (!process.env.JWT_SECRET) {
+      require('dotenv').config();
+    }
+
     // Generate access token
     const accessToken = jwt.sign(
       {
