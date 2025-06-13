@@ -7,21 +7,32 @@
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "cd backend && npm run dev",
     "dev:frontend": "cd frontend && npm run dev",
-    "install:all": "npm run install:backend && npm run install:frontend",
+    "dev:functions": "cd frontend && netlify dev",
+    "install:all": "npm run install:backend && npm run install:frontend && npm run install:functions",
     "install:backend": "cd backend && npm install",
     "install:frontend": "cd frontend && npm install",
+    "install:functions": "npm install --prefix netlify/functions/shared",
     "build": "npm run build:frontend",
     "build:frontend": "cd frontend && npm install && npm run build",
     "build:production": "npm run install:all && npm run build:frontend",
     "start": "cd backend && npm start",
+    "start:functions": "netlify dev",
     "test": "npm run test:backend && npm run test:frontend",
     "test:backend": "cd backend && npm test",
     "test:frontend": "cd frontend && npm test"
   },
   "devDependencies": {
-    "concurrently": "^8.2.0"
+    "concurrently": "^8.2.0",
+    "netlify-cli": "^17.38.1"
   },
-  "keywords": ["restaurant", "nigerian", "food", "react", "nodejs"],
+  "keywords": [
+    "restaurant",
+    "nigerian",
+    "food",
+    "react",
+    "nodejs",
+    "netlify"
+  ],
   "author": "Ogunjiseyi",
   "license": "MIT"
 }

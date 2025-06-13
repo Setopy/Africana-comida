@@ -7,13 +7,15 @@ export const getApiUrl = () => {
   const envApiUrl = import.meta.env.VITE_API_URL;
   if (envApiUrl) return envApiUrl;
   
-  // If running in production and no API URL provided, use relative path
+  // If running in production and no API URL provided, use Netlify Functions
   if (import.meta.env.PROD) {
-    return '/api';  // This will use the same domain as the frontend
+    return '/.netlify/functions';  // Netlify Functions endpoint
   }
   
-  // Fallback for development
-  return 'http://localhost:5000';
+  // Fallback for development - can point to local functions or backend
+  return import.meta.env.VITE_USE_FUNCTIONS === 'true' 
+    ? '/.netlify/functions'  // Use local Netlify Functions in dev
+    : 'http://localhost:5000/api';  // Use Express backend in dev
 };
 
 export const API_URL = getApiUrl();

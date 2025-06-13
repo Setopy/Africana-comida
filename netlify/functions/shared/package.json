@@ -1,0 +1,10 @@
+{
+  "name": "netlify-functions-shared",
+  "version": "1.0.0",
+  "description": "Shared dependencies for Netlify Functions",
+  "dependencies": {
+    "mongoose": "^8.0.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
