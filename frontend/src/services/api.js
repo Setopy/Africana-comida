@@ -11,11 +11,11 @@ const api = axios.create({
 });
 
 export const menuAPI = {
-  getAll: () => api.get('/menu'),
-  getById: (id) => api.get(`/menu/${id}`),
-  create: (data) => api.post('/menu', data),
-  update: (id, data) => api.put(`/menu/${id}`, data),
-  delete: (id) => api.delete(`/menu/${id}`)
+  getAll: () => api.get('/menu-simple'),
+  getById: (id) => api.get(`/menu-simple/${id}`),
+  create: (data) => api.post('/menu-simple', data),
+  update: (id, data) => api.put(`/menu-simple/${id}`, data),
+  delete: (id) => api.delete(`/menu-simple/${id}`)
 };
 
 export default api;
