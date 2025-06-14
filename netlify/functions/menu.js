@@ -21,13 +21,18 @@ exports.handler = async (event, context) => {
   }
 
   try {
-    // Debug logging
-    console.log('Environment check:', {
+    console.log('Menu function called:', {
+      method: event.httpMethod,
+      path: event.path,
       hasMongoDB: !!process.env.MONGODB_URI,
+      mongoURILength: process.env.MONGODB_URI ? process.env.MONGODB_URI.length : 0,
       nodeEnv: process.env.NODE_ENV
     });
     
+    // Test database connection
+    console.log('Attempting database connection...');
     await connectToDatabase();
+    console.log('Database connection successful');
 
     const { httpMethod, path } = event;
     const segments = path.split('/').filter(Boolean);
