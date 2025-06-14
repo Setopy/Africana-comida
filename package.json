@@ -13,7 +13,7 @@
     "install:frontend": "cd frontend && npm install",
     "install:functions": "npm install --prefix netlify/functions/shared",
     "build": "npm run build:frontend",
-    "build:frontend": "cd frontend && npm install && npm run build",
+    "build:frontend": "cd frontend && npm install --production=false --legacy-peer-deps && npm run build",
     "build:production": "npm run install:all && npm run build:frontend",
     "start": "cd backend && npm start",
     "start:functions": "netlify dev",

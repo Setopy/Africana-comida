@@ -1,5 +1,5 @@
 [build]
-  command = "cd frontend && npm install --production=false --legacy-peer-deps && npm run build"
+  command = "node deploy-functions.js && npm run install:frontend && npm run build:frontend && npm run install:functions"
   publish = "frontend/dist"
 
 [build.environment]
@@ -25,6 +25,7 @@
   from = "/api/menu/*"
   to = "/.netlify/functions/menu"
   status = 200
+
 
 [[redirects]]
   from = "/api/orders/*"
