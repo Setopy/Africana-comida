@@ -148,17 +148,17 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       setAuthError(null);
-      const res = await axios.post(`${API_URL}/api/users/login`, {
+      const res = await axios.post('/.netlify/functions/users-simple/login', {
         email,
         password
       });
       
-      const { token, refreshToken, user: userData } = res.data;
+      const { accessToken, refreshToken, user: userData } = res.data;
       
-      if (token) {
-        localStorage.setItem('token', token);
+      if (accessToken) {
+        localStorage.setItem('token', accessToken);
         if (refreshToken) localStorage.setItem('refreshToken', refreshToken);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         setUser(userData);
         return { success: true };
       }
@@ -178,14 +178,14 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       setAuthError(null);
-      const res = await axios.post(`${API_URL}/api/users/register`, userData);
+      const res = await axios.post('/.netlify/functions/users-simple/register', userData);
       
-      const { token, refreshToken, user: newUser } = res.data;
+      const { accessToken, refreshToken, user: newUser } = res.data;
       
-      if (token) {
-        localStorage.setItem('token', token);
+      if (accessToken) {
+        localStorage.setItem('token', accessToken);
         if (refreshToken) localStorage.setItem('refreshToken', refreshToken);
-        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         setUser(newUser);
         return { success: true };
       }

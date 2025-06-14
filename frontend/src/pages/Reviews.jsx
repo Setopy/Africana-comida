@@ -17,8 +17,8 @@ const Reviews = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await axios.get(`${API_URL}/api/reviews`);
-        setReviews(response.data);
+        const response = await axios.get('/.netlify/functions/reviews-simple');
+        setReviews(response.data.data || []);
       } catch (error) {
         console.error('Error fetching reviews:', error);
       } finally {
@@ -43,7 +43,7 @@ const Reviews = () => {
     setMessage({ type: '', text: '' });
     
     try {
-      await axios.post(`${API_URL}/api/reviews`, formData);
+      await axios.post('/.netlify/functions/reviews-simple', formData);
       setMessage({ 
         type: 'success', 
         text: 'Thank you for your review! It will be visible after approval.' 
