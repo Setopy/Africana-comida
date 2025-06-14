@@ -1,11 +1,10 @@
 [build]
   base = "frontend"
-  command = "npm run build:netlify"
+  command = "npm install --legacy-peer-deps && npm run build"
   publish = "dist"
 
 [build.environment]
   NODE_VERSION = "18"
-  NPM_FLAGS = "--legacy-peer-deps"
   MONGODB_URI = "mongodb+srv://ogunjist:bazVSqwQ6GpSaqIR@cluster0.68tohs0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
   JWT_SECRET = "3921c63ec5c9463d11b46e1a21f3d0e9a4d5faf295b2065949f673b5a4e0e802"
   JWT_ACCESS_EXPIRATION = "15m"
