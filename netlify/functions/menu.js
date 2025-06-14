@@ -21,6 +21,12 @@ exports.handler = async (event, context) => {
   }
 
   try {
+    // Debug logging
+    console.log('Environment check:', {
+      hasMongoDB: !!process.env.MONGODB_URI,
+      nodeEnv: process.env.NODE_ENV
+    });
+    
     await connectToDatabase();
 
     const { httpMethod, path } = event;
@@ -47,6 +53,22 @@ exports.handler = async (event, context) => {
         } else {
           // Get all menu items
           const items = await MenuItem.find({ isAvailable: true });
+          console.log(`Found ${items.length} menu items`);
+          
+          // If no items found, return sample data or empty array
+          if (items.length === 0) {
+            console.log('No menu items found, returning empty array');
+            return {
+              statusCode: 200,
+              headers,
+              body: JSON.stringify({ 
+                success: true, 
+                data: [],
+                message: 'No menu items available at the moment'
+              })
+            };
+          }
+          
           return {
             statusCode: 200,
             headers,
@@ -108,10 +130,20 @@ exports.handler = async (event, context) => {
     }
   } catch (error) {
     console.error('Menu function error:', error);
+    console.error('Error details:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
+    
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ success: false, message: 'Server error' })
+      body: JSON.stringify({ 
+        success: false, 
+        message: 'Server error',
+        error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+      })
     };
   }
 };

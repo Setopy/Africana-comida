@@ -13,8 +13,18 @@ const connectToDatabase = async () => {
       require('dotenv').config();
     }
 
+    // Debug logging
+    console.log('MongoDB connection attempt:', {
+      hasURI: !!process.env.MONGODB_URI,
+      connectionState: mongoose.connection.readyState
+    });
+
+    if (!process.env.MONGODB_URI) {
+      throw new Error('MONGODB_URI environment variable is not set');
+    }
+
     const connection = await mongoose.connect(process.env.MONGODB_URI, {
-      serverSelectionTimeoutMS: 5000,
+      serverSelectionTimeoutMS: 10000,
       socketTimeoutMS: 45000,
       connectTimeoutMS: 10000,
       maxPoolSize: 10,

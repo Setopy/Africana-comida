@@ -1,23 +1,64 @@
 [build]
   base = "frontend"
-  command = "npm run build"
+  command = "npm run build:netlify"
   publish = "dist"
-  functions = "../netlify/functions"
 
 [build.environment]
   NODE_VERSION = "18"
   NPM_FLAGS = "--legacy-peer-deps"
+  MONGODB_URI = "mongodb+srv://ogunjist:bazVSqwQ6GpSaqIR@cluster0.68tohs0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  JWT_SECRET = "3921c63ec5c9463d11b46e1a21f3d0e9a4d5faf295b2065949f673b5a4e0e802"
+  JWT_ACCESS_EXPIRATION = "15m"
+  JWT_REFRESH_EXPIRATION = "7d"
+  NODE_ENV = "production"
+  LOG_LEVEL = "info"
+
+[functions]
+  directory = "../netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["mongoose", "bcryptjs", "jsonwebtoken", "dotenv"]
 
 [[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  from = "/api/users/*"
+  to = "/.netlify/functions/users"
+  status = 200
+
+[[redirects]]
+  from = "/api/menu/*"
+  to = "/.netlify/functions/menu"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/*"
+  to = "/.netlify/functions/orders"
+  status = 200
+
+[[redirects]]
+  from = "/api/reviews/*"
+  to = "/.netlify/functions/reviews"
+  status = 200
+
+[[redirects]]
+  from = "/menu*"
+  to = "/.netlify/functions/menu"
+  status = 200
+
+[[redirects]]
+  from = "/users*"
+  to = "/.netlify/functions/users"
+  status = 200
+
+[[redirects]]
+  from = "/orders*"
+  to = "/.netlify/functions/orders"
+  status = 200
+
+[[redirects]]
+  from = "/reviews*"
+  to = "/.netlify/functions/reviews"
   status = 200
 
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-
-[functions]
-  node_bundler = "esbuild"
-  external_node_modules = ["mongoose", "bcryptjs", "jsonwebtoken"]
