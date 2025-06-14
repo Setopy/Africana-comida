@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import { API_URL } from '../config/constants';
 
 const api = axios.create({
@@ -11,11 +10,11 @@ const api = axios.create({
 });
 
 export const menuAPI = {
-  getAll: () => api.get('/menu-simple'),
-  getById: (id) => api.get(`/menu-simple/${id}`),
-  create: (data) => api.post('/menu-simple', data),
-  update: (id, data) => api.put(`/menu-simple/${id}`, data),
-  delete: (id) => api.delete(`/menu-simple/${id}`)
+  getAll: () => axios.get('/.netlify/functions/menu-simple'),
+  getById: (id) => axios.get(`/.netlify/functions/menu-simple/${id}`),
+  create: (data) => axios.post('/.netlify/functions/menu-simple', data),
+  update: (id, data) => axios.put(`/.netlify/functions/menu-simple/${id}`, data),
+  delete: (id) => axios.delete(`/.netlify/functions/menu-simple/${id}`)
 };
 
 export default api;
