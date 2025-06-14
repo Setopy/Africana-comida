@@ -1,7 +1,6 @@
 [build]
-  base = "frontend"
-  command = "npm install --production=false --legacy-peer-deps && npm run build"
-  publish = "dist"
+  command = "cd frontend && npm install --production=false --legacy-peer-deps && npm run build"
+  publish = "frontend/dist"
 
 [build.environment]
   NODE_VERSION = "18"
@@ -13,7 +12,7 @@
   LOG_LEVEL = "info"
 
 [functions]
-  directory = "../netlify/functions"
+  directory = "netlify/functions"
   node_bundler = "esbuild"
   external_node_modules = ["mongoose", "bcryptjs", "jsonwebtoken", "dotenv"]
 
