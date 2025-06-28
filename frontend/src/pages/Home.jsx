@@ -111,7 +111,7 @@ function Home() {
               </div>
             </div>
             
-            {/* Featured Dish 3 - Egusi */}
+            {/* Featured Dish 3 - Wheat and Egusi Soup */}
             <div style={{ 
               border: '1px solid #e0e0e0', 
               borderRadius: '8px',
@@ -120,13 +120,13 @@ function Home() {
               boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
             }}>
               <img 
-                src="https://via.placeholder.com/300x200?text=Egusi+Soup" 
-                alt="Egusi Soup" 
+                src="https://via.placeholder.com/300x200?text=Wheat+%26+Egusi" 
+                alt="Wheat and Egusi Soup" 
                 style={{ width: '100%', height: '200px', objectFit: 'cover' }}
               />
               <div style={{ padding: '20px' }}>
-                <h3>Egusi</h3>
-                <p>Traditional Nigerian soup made from ground calabash seeds, leafy vegetables, and assorted meats.</p>
+                <h3>Wheat and Egusi Soup</h3>
+                <p>Traditional Nigerian combination - nutritious wheat swallow served with rich egusi soup made from ground calabash seeds, leafy vegetables, and assorted meats.</p>
                 <Link to="/menu" style={{ 
                   color: '#8B4513', 
                   textDecoration: 'none',
@@ -139,35 +139,7 @@ function Home() {
               </div>
             </div>
 
-            {/* Featured Dish 4 - Wheat */}
-            <div style={{ 
-              border: '1px solid #e0e0e0', 
-              borderRadius: '8px',
-              overflow: 'hidden',
-              backgroundColor: 'white',
-              boxShadow: '0 2px 5px rgba(0,0,0,0.1)'
-            }}>
-              <img 
-                src="https://via.placeholder.com/300x200?text=Wheat" 
-                alt="Wheat" 
-                style={{ width: '100%', height: '200px', objectFit: 'cover' }}
-              />
-              <div style={{ padding: '20px' }}>
-                <h3>Wheat</h3>
-                <p>Nigerian wheat meal served as a swallow with your choice of soup. A nutritious and filling staple.</p>
-                <Link to="/menu" style={{ 
-                  color: '#8B4513', 
-                  textDecoration: 'none',
-                  fontWeight: 'bold',
-                  display: 'inline-block',
-                  marginTop: '10px'
-                }}>
-                  View Details
-                </Link>
-              </div>
-            </div>
-
-            {/* Featured Dish 5 - Akara */}
+            {/* Featured Dish 4 - Akara */}
             <div style={{ 
               border: '1px solid #e0e0e0', 
               borderRadius: '8px',
