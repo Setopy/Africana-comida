@@ -16,7 +16,7 @@ function Home() {
             Experience Authentic Nigerian Cuisine in Tijuana
           </h1>
           <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>
-            A culinary journey through Nigeria's rich food heritage, bringing traditional flavors and recipes to your table.
+            Journey with us through Nigeria's rich food heritage, as we bring traditional flavors and authentic recipes-prepared by experienced hands-to your table.
           </p>
           <div>
             <Link to="/menu" style={{ 
@@ -52,8 +52,11 @@ function Home() {
           <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Our Featured Dishes</h2>
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-            gap: '30px' 
+            gridTemplateColumns: 'repeat(2, 1fr)', 
+            gridTemplateRows: 'repeat(2, 1fr)',
+            gap: '30px',
+            maxWidth: '800px',
+            margin: '0 auto'
           }}>
             {/* Featured Dish 1 - Jollof Rice */}
             <div style={{ 
@@ -70,7 +73,7 @@ function Home() {
               />
               <div style={{ padding: '20px' }}>
                 <h3>Jollof Rice</h3>
-                <p>Traditional Nigerian spiced rice cooked in rich tomato sauce with vegetables and choice of protein.</p>
+                <p>Traditional Nigerian spiced rice cooked in rich tomato sauce with vegetables and chicken.</p>
                 <Link to="/menu" style={{ 
                   color: '#8B4513', 
                   textDecoration: 'none',
@@ -126,7 +129,7 @@ function Home() {
               />
               <div style={{ padding: '20px' }}>
                 <h3>Wheat and Egusi Soup</h3>
-                <p>Traditional Nigerian combination - nutritious wheat swallow served with rich egusi soup made from ground calabash seeds, leafy vegetables, and assorted meats.</p>
+                <p>Traditional Nigerian combination - nutritious wheat swallow served with rich egusi soup made from ground calabash seeds, leafy vegetables, and protein chicken.</p>
                 <Link to="/menu" style={{ 
                   color: '#8B4513', 
                   textDecoration: 'none',
